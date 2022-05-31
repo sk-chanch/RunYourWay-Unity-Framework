@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-    name: "UnityFramework",
+    name: "UnityFrameworkWrapper",
     platforms: [
          .iOS(.v11)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "UnityFramework",
-            targets: ["UnityFramework"]),
+            name: "UnityFrameworkWrapper",
+            targets: ["UnityFrameworkWrapper"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -23,7 +23,17 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(name: "UnityFramework",
                       url: "https://github.com/sk-chanch/RunYourWay-Unity-Framework/releases/download/1.0.0/UnityFramework.zip",
-                      checksum: "69bb8a76e4d1ae458e63847fc382fa565490fcdebaca12c6887152152f863482")
-       
+                      checksum: "69bb8a76e4d1ae458e63847fc382fa565490fcdebaca12c6887152152f863482"),
+        
+            .target(
+                name: "UnityFrameworkWrapper",
+                dependencies: ["C"],
+                path: "Sources/FooSwift",
+                sources: ["Foo.swift"]),
+        .target(
+            name: "C",
+            dependencies: ["UnityFramework"],
+            path: "Sources/C"),
+        
     ]
 )
