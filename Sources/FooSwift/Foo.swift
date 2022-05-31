@@ -5,4 +5,4 @@
 //  Created by Chanchana Koedtho on 1/6/2565 BE.
 //
 
-@_exported import UnityFramework
+import Foundation
