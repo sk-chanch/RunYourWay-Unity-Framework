@@ -33,7 +33,8 @@ let package = Package(
         .target(
             name: "C",
             dependencies: ["UnityFramework"],
-            path: "Sources/C"),
+            path: "Sources/C",
+            publicHeadersPath: "."),
         
     ]
 )
