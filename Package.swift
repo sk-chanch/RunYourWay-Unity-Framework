@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "RunYourWay-Unity-Framework",
+    name: "UnityFramework",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "RunYourWay-Unity-Framework",
-            targets: ["RunYourWay-Unity-Framework"]),
+            name: "UnityFramework",
+            targets: ["UnityFramework"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -18,6 +18,9 @@ let package = Package(
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        .binaryTarget(name: "UnityFramework",
+                      url: "https://github.com/sk-chanch/RunYourWay-Unity-Framework/releases/download/1.0.0/UnityFramework.zip",
+                      checksum: "6e9d933c11e2dd55668ce231730c846d0eb2a37dd1c51929fc723b6cf1638bc9")
        
     ]
 )
