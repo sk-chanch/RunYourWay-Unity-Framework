@@ -23,7 +23,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(name: "UnityFramework",
                       url: "https://github.com/sk-chanch/RunYourWay-Unity-Framework/releases/download/1.0.0/UnityFramework.zip",
-                      checksum: "8a48876f801a812802942f46c1d1b761deb9625ce4b87b92555bb7b56adbf9a7"),
+                      checksum: "19454dcd1cc28471654678ee51485dc904b76e35ef8c14d8ec566a59489db6ec"),
         
 //            .target(
 //                name: "UnityFrameworkWrapper",
