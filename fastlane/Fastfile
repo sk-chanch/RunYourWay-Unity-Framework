@@ -25,16 +25,17 @@ platform :ios do
     output = sh("swift package compute-checksum ../UnityFramework.zip")
     
  
+    next_tag = bump_tag(num:last_git_tag)
+
     text = File.read("../Package.swift")
     new_content = text.gsub(/(?<=checksum:).*?(?="\))/,"\"#{output.strip}")
+    new_content = new_content.gsub(/(?<=download\/).*?(?=\/Unity)/, next_tag)
     File.open("../Package.swift", "w") {|file| file.puts new_content }
    
  
     sh("cd ../; git add .; git commit -m 'add new package version'; git push -f;")
 
-    
-    next_tag = bump_tag(num:last_git_tag)
-    # sh("cd ../; git tag #{next_tag}; git push --tag;")
+    sh("cd ../; git tag #{next_tag};")
 
     github_release = set_github_release(
       repository_name: "sk-chanch/RunYourWay-Unity-Framework",
