@@ -1,0 +1,80 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+ 
+  lane :zip_export do 
+    zip(
+      path: "../BuildFramework/UnityFramework.xcframework",
+      output_path: "UnityFramework.zip"
+    )
+    output = sh("swift package compute-checksum ../UnityFramework.zip")
+    
+ 
+    text = File.read("../Package.swift")
+    new_content = text.gsub(/(?<=checksum:).*?(?="\))/,"\"#{output.strip}")
+    File.open("../Package.swift", "w") {|file| file.puts new_content }
+   
+ 
+    sh("git add .; git commit -m 'add new package version'; git push")
+
+    
+    next_tag = bump_tag(num:last_git_tag)
+    sh("git tag #{next_tag}; git push --tag")
+
+    github_release = set_github_release(
+      repository_name: "sk-chanch/RunYourWay-Unity-Framework",
+      api_token: "sk-chanch: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",
+      name: "Super New actions",
+      tag_name: next_tag,
+      description: (File.read("changelog") rescue "No changelog provided"),
+      commitish: "master",
+      upload_assets: ["../UnityFramework.zip"]
+    )
+    
+  end
+
+  lane :bump_tag do |options|
+    last_tag = options[:num].split(".").map{|x| x.to_i}
+    
+    major = last_tag[0]
+    minor = last_tag[1]
+    patch = last_tag[2]
+   
+    if patch == 9
+      patch = 0
+
+      if minor == 99
+        major = major + 1
+        minor = 0
+      else
+        minor = minor + 1
+      end
+  
+      
+
+    else
+      patch = patch + 1
+    end
+
+    
+
+    "#{major}.#{minor}.#{patch}"
+  end
+
+
+end
