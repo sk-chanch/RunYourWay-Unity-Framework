@@ -5,17 +5,42 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000542">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000442">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: last_git_tag" time="0.091337">
+      <testcase classname="fastlane.lanes" name="1: zip" time="20.734177">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to ios bump_tag lane" time="0.000496">
+      <testcase classname="fastlane.lanes" name="2: swift package compute-checksum ../UnityFramework.zip" time="1.291975">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: last_git_tag" time="0.061454">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="4: Switch to ios bump_tag lane" time="0.000314">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="5: cd ../; git add .; git commit -m &apos;add new package version&apos;; git push -f;" time="20.187904">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="6: cd ../; git tag 1.1.6;" time="0.037812">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="7: set_github_release" time="991.838759">
         
       </testcase>
     

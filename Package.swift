@@ -22,8 +22,12 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(name: "UnityFramework",
-                      url: "https://github.com/sk-chanch/RunYourWay-Unity-Framework/releases/download/1.1.5/UnityFramework.zip",
-                      checksum:"a8dff39bbd9006011fe961053387cac0ef950d19bca38d28e69aa46276376e32"),
+                      url: "https://github.com/sk-chanch/RunYourWay-Unity-Framework/releases/download/1.1.6/UnityFramework.zip",
+                      checksum:"2022-06-05 05:57:49.059 xcodebuild[10776:213141] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-06-05 05:57:49.059 xcodebuild[10776:213141] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-06-05 05:57:49.879 xcodebuild[10778:213168] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionSentinelHostApplications for extension Xcode.DebuggerFoundation.AppExtensionHosts.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+2022-06-05 05:57:49.880 xcodebuild[10778:213168] Requested but did not find extension point with identifier Xcode.IDEKit.ExtensionPointIdentifierToBundleIdentifier for extension Xcode.DebuggerFoundation.AppExtensionToBundleIdentifierMap.watchOS of plug-in com.apple.dt.IDEWatchSupportCore
+0a8607310661f091e356a2b96e15fb6413e09a612d6008a095113f9605a8534f"),
         
 //            .target(
 //                name: "UnityFrameworkWrapper",
