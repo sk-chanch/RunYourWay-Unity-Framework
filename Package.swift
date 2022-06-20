@@ -22,8 +22,8 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .binaryTarget(name: "UnityFramework",
-                      url: "https://github.com/sk-chanch/RunYourWay-Unity-Framework/releases/download/1.2.1/UnityFramework.zip",
-                      checksum:"86e7911598fc428a0c5f497babb338d41579c1261272506e62829ca28cbb713d"),
+                      url: "https://github.com/sk-chanch/RunYourWay-Unity-Framework/releases/download/1.2.2/UnityFramework.zip",
+                      checksum:"c5aefcde3ac6f9997536c59b102af2146f8a58ec8c9297beecbf88c060493425"),
         
 //            .target(
 //                name: "UnityFrameworkWrapper",
